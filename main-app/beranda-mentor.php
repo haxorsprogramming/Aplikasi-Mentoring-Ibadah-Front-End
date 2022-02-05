@@ -17,16 +17,16 @@
         <h4 class="card__title">Buat Kegiatan</h4>
         <p class="card__text">Buat kegiatan amalan untuk digunakan oleh binaan</p>
     </div>
-    <div class="card card--style-icon card--style-round-corners">
+    <div class="card card--style-icon card--style-round-corners" onclick="listKegiatanMentorAtc()">
         <div class="card__icon"><img src="../ladun/assets/images/icons/blue/listing.svg" alt="" title="" />
         </div>
-        <h4 class="card__title">Daftar Antrian</h4>
+        <h4 class="card__title">Daftar Kegiatan</h4>
         <p class="card__text">Daftar antrian untuk binaan</p>
     </div>
     <div class="card card--style-icon card--style-round-corners">
         <div class="card__icon"><img src="../ladun/assets/images/icons/blue/pencil.svg" alt="" title="" />
         </div>
-        <h4 class="card__title">Informasi Aplikasi</h4>
+        <h4 class="card__title">Daftar Antrian</h4>
         <p class="card__text">Cek dan pantau info terbaru seputar pelaksanaan PPDB 2021</p>
     </div>
     <div class="card card--style-icon card--style-round-corners">
@@ -47,7 +47,12 @@
         document.querySelector("#capUser").innerHTML = "Selamat datang, " + obj.namaUser;
     });
 
-    function buatKegiatanAtc() {
+    function buatKegiatanAtc()
+    {
         loadPage('buat-kegiatan.php');
+    }
+    function listKegiatanMentorAtc()
+    {
+        loadPage('list-kegiatan-mentor.php');
     }
 </script>
