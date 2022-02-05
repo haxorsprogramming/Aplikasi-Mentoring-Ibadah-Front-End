@@ -9,19 +9,19 @@
 </div>
 
 <p class="welcome"></p>
-<h3>Fitur aplikasi</h3>
+<h3>Fitur aplikasi (Mentor)</h3>
 <div class="cards cards--12">
     <div class="card card--style-icon card--style-round-corners" onclick="daftarKegiatanAtc()">
         <div class="card__icon"><img src="../ladun/assets/images/icons/blue/form.svg" alt="" title="" />
         </div>
         <h4 class="card__title">Pendaftaran Kegiatan</h4>
-        <p class="card__text">Pendaftaran kegiatan amalan ke mentor</p>
+        <p class="card__text">Pendaftaran kegiatan amalan untuk digunakan oleh binaan</p>
     </div>
     <div class="card card--style-icon card--style-round-corners">
         <div class="card__icon"><img src="../ladun/assets/images/icons/blue/listing.svg" alt="" title="" />
         </div>
-        <h4 class="card__title">History Amalan</h4>
-        <p class="card__text">Status pendaftaran amalan & history amalan akan tampil</p>
+        <h4 class="card__title">Daftar Antrian</h4>
+        <p class="card__text">Daftar antrian untuk binaan</p>
     </div>
     <div class="card card--style-icon card--style-round-corners">
         <div class="card__icon"><img src="../ladun/assets/images/icons/blue/pencil.svg" alt="" title="" />

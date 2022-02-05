@@ -19,7 +19,12 @@
 
 function homeBotAtc()
 {
-	loadPage('beranda.php');
+	let dataLogin = getUserLogin();
+	if(dataLogin.role === "MENTOR"){
+		loadPage('beranda-mentor.php');
+	}else{
+		loadPage('beranda-binaan.php');
+	}
 }
 
 function profileBotAtc()

@@ -1,6 +1,6 @@
 // route 
 var rProsesLogin = server + "api/auth.php";
-var rToDashboard = server + "main-app/index.html";
+var rToDashboard = server + "main-app/index.php";
 // vue object 
 var app = new Vue({
   el : '#app',

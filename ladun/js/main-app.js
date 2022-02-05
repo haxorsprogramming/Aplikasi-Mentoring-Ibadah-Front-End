@@ -1,4 +1,18 @@
-loadPage('beranda.php');
+var rGetInfoLogin = server + "api/getInfoLogin.php";
+var ds = {
+  username: username,
+};
+$.post(rGetInfoLogin, ds, function (data) {
+  let obj = JSON.parse(data);
+  let role = obj.role;
+  if(role === "MENTOR"){
+    loadPage("beranda-mentor.php");
+  }else{
+    loadPage("beranda-binaan.php");
+  }
+});
+
+
 
 function botNavAtc() {
   console.log(username);
@@ -36,16 +50,14 @@ function ziTo(tipe, judul, message) {
   }
 }
 
-function loadPage(page)
-{
+function loadPage(page) {
   $("#mainApp").hide();
   $("#divLoading").show();
-  setTimeout(function(){
+  setTimeout(function () {
     $("#divLoading").hide();
     $("#mainApp").load(page);
     $("#mainApp").show();
   }, 2000);
-  
 }
 
 function pesanUmumApp(icon, title, text) {
@@ -56,6 +68,19 @@ function pesanUmumApp(icon, title, text) {
   });
 }
 
-function tidur_bentar(ms){
-  return new Promise(resolve => { setTimeout(resolve, ms) });
+function tidur_bentar(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+function getUserLogin()
+{
+  var dataRespon = {'nama':'', 'role':''}
+  $.post(rGetInfoLogin, {'username':username}, function (data) {
+    let obj = JSON.parse(data);
+    dataRespon.nama = obj.namaUser;
+    dataRespon.role = obj.role;
+  });
+  return dataRespon;
 }

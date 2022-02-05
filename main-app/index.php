@@ -54,6 +54,7 @@
     <script>
         var server = "http://localhost/Aplikasi-Mentoring-Ibadah-Front-End/";
         var username = localStorage.getItem("username");
+        var role = "";
     </script>
     <script src="../ladun/js/main-app.js"></script>
 </body>
