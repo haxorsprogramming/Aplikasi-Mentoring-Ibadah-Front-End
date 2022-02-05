@@ -1,0 +1,35 @@
+<div class="bottom-navigation">
+	 <div class="swiper-container-toolbar swiper-toolbar">
+		<div class="bottom-navigation__pagination"></div>
+		<div class="bottom-navigation__more"><img src="../ladun/assets/images/icons/blue/more.svg" alt="" title="" /></div>
+		<div class="swiper-wrapper">
+		  <div class="swiper-slide">
+			<ul class="bottom-navigation__icons">
+			<li><a href="javascript:void(0)" onclick="homeBotAtc()"><img src="../ladun/assets/images/icons/blue/home.svg"/><span>Home</span></a></li>
+			<li><a href="javascript:void(0)" onclick="pendaftaranPpdbBotAtc()"><img src="../ladun/assets/images/icons/blue/user.svg" alt="" title="" /><span>Profil</span></a></li>
+			<li><a href="javascript:void(0)" onclick="inboxAtc()"><img src="../ladun/assets/images/icons/blue/contact.svg" alt="" title="" /><span>Inbox</span></a></li>
+			<li><a href="../index.html"><img src="../ladun/assets/images/icons/blue/arrow-right-circle.svg" /><span>Logout</span></a></li>
+			</ul>
+		  </div> 
+		</div>
+	  </div>
+</div>	  
+
+<script>
+
+function homeBotAtc()
+{
+	$("#mainApp").load('beranda.html');
+}
+
+  function inboxAtc()
+  {
+    window.alert("Halaman ini belum diaktifkan ...!!!");
+  }
+  
+function pendaftaranPpdbBotAtc()
+{
+	$("#mainApp").load('registrasi-awal.html');
+}
+
+</script>

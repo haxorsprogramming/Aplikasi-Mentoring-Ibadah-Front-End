@@ -1,0 +1,384 @@
+<div class="page__content" style="background-color: #ecf0f1;padding-top: 10px;text-align: center;"
+    id="divJalurPrestasi">
+    <p class="welcome">
+    <h2>Step 2 - Jalur Prestasi</h2>
+    </p>
+    <h3>Data nilai rapor semester 1 - 5</h3>
+    <div class="toggle mb-20">
+        <div class="radio-option">
+            <input type="radio" name="radioption1" id="op1" value="1" checked="" onclick="setFrmSemester('1')"><label for="op1">1</label>
+        </div>
+        <div class="radio-option">
+            <input type="radio" name="radioption1" id="op2" value="2" onclick="setFrmSemester('2')"><label for="op2">2</label>
+        </div>
+        <div class="radio-option">
+            <input type="radio" name="radioption1" id="op3" value="3" onclick="setFrmSemester('3')"><label for="op3">3</label>
+        </div>
+        <div class="radio-option">
+            <input type="radio" name="radioption1" id="op4" value="4" onclick="setFrmSemester('4')"><label for="op4">4</label>
+        </div>
+        <div class="radio-option">
+            <input type="radio" name="radioption1" id="op5" value="5" onclick="setFrmSemester('5')"><label for="op5">5</label>
+        </div>
+    </div>
+
+    <div id="capSemester_1" class="frmSemester">
+        Semester 1<br/><br/>
+        <div class="form__row">
+            <h2>Pendidikan Agama</h2>
+            <input type="number" id="s_1_1"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>PPKN</h2>
+            <input type="Nilai" id="s_1_2"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Indonesia</h2>
+            <input type="number" id="s_1_3" value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Matematika</h2>
+            <input type="number" id="s_1_4"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Alam</h2>
+            <input type="number" id="s_1_5"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Sosial</h2>
+            <input type="number" id="s_1_6"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Inggris</h2>
+            <input type="number" id="s_1_7"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        
+        <div>
+            <p><strong>Foto rapor semester 1</strong></p>
+            <img src="../ladun/img/default.jpg" style="width: 200px;border-radius: 12px;" id="img_rapor_s_1">
+            <input type="file" class="custom-file-input" accept="image/*" onchange="setImgRapor_S_1()" id="set_rapor_set_1">
+            <br/>
+        </div>
+    </div>
+    <div id="capSemester_2" class="frmSemester" style="display: none;">
+        Semester 2<br/><br/>
+        <div class="form__row">
+            <h2>Pendidikan Agama</h2>
+            <input type="number" id="s_2_1"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>PPKN</h2>
+            <input type="Nilai" id="s_2_2"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Indonesia</h2>
+            <input type="number" id="s_2_3" value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Matematika</h2>
+            <input type="number" id="s_2_4"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Alam</h2>
+            <input type="number" id="s_2_5"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Sosial</h2>
+            <input type="number" id="s_2_6"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Inggris</h2>
+            <input type="number" id="s_2_7"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        
+        <div>
+            <p><strong>Foto rapor semester 2</strong></p>
+            <img src="../ladun/img/default.jpg" style="width: 200px;border-radius: 12px;" id="img_rapor_s_2">
+            <input type="file" class="custom-file-input" accept="image/*" onchange="setImgRapor_S_2()" id="set_rapor_set_2">
+            <br/>
+        </div>
+    </div>
+    <div id="capSemester_3" class="frmSemester" style="display: none;">
+        Semester 3<br/><br/>
+        <div class="form__row">
+            <h2>Pendidikan Agama</h2>
+            <input type="number" id="s_3_1"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>PPKN</h2>
+            <input type="Nilai" id="s_3_2"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Indonesia</h2>
+            <input type="number" id="s_3_3" value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Matematika</h2>
+            <input type="number" id="s_3_4"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Alam</h2>
+            <input type="number" id="s_3_5"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Sosial</h2>
+            <input type="number" id="s_3_6"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Inggris</h2>
+            <input type="number" id="s_3_7"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div>
+            <p><strong>Foto rapor semester 3</strong></p>
+            <img src="../ladun/img/default.jpg" style="width: 200px;border-radius: 12px;" id="img_rapor_s_3">
+            <input type="file" class="custom-file-input" accept="image/*" onchange="setImgRapor_S_3()" id="set_rapor_set_3">
+            <br/>
+        </div>
+    </div>
+    <div id="capSemester_4" class="frmSemester" style="display: none;">
+        Semester 4<br/><br/>
+        <div class="form__row">
+            <h2>Pendidikan Agama</h2>
+            <input type="number" id="s_4_1"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>PPKN</h2>
+            <input type="number" id="s_4_2"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Indonesia</h2>
+            <input type="number" id="s_4_3" value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Matematika</h2>
+            <input type="number" id="s_4_4"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Alam</h2>
+            <input type="number" id="s_4_5"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Sosial</h2>
+            <input type="number" id="s_4_6"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Inggris</h2>
+            <input type="number" id="s_4_7"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        
+        <div>
+            <p><strong>Foto rapor semester 4</strong></p>
+            <img src="../ladun/img/default.jpg" style="width: 200px;border-radius: 12px;" id="img_rapor_s_4">
+            <input type="file" class="custom-file-input" accept="image/*" onchange="setImgRapor_S_4()" id="set_rapor_set_4">
+            <br/>
+        </div>
+    </div>
+    <div id="capSemester_5" class="frmSemester" style="display: none;">
+        Semester 5<br/><br/>
+        <div class="form__row">
+            <h2>Pendidikan Agama</h2>
+            <input type="number" id="s_5_1"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>PPKN</h2>
+            <input type="number" id="s_5_2"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Indonesia</h2>
+            <input type="number" id="s_5_3" value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Matematika</h2>
+            <input type="number" id="s_5_4"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Alam</h2>
+            <input type="number" id="s_5_5"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Ilmu Pengetahuan Sosial</h2>
+            <input type="number" id="s_5_6"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div class="form__row">
+            <h2>Bahasa Inggris</h2>
+            <input type="number" id="s_5_7"  value="" class="form__input required" placeholder="Nilai">
+        </div>
+        <div>
+            <p><strong>Foto rapor semester 5</strong></p>
+            <img src="../ladun/img/default.jpg" style="width: 200px;border-radius: 12px;" id="img_rapor_s_5">
+            <input type="file" class="custom-file-input" accept="image/*" onchange="setImgRapor_S_5()" id="set_rapor_set_5">
+            <br/>
+        </div>
+    </div>
+
+    <div class="form__row mt-40">
+        <a class="form__submit button button--main button--full" onclick="nextAtc()">Selanjutnya</a>
+    </div>
+</div>
+
+<script>
+
+
+    function nextAtc()
+    {
+        // nilai semester 1 
+        let n_1_1 = document.querySelector("#s_1_1").value;
+        let n_1_2 = document.querySelector("#s_1_2").value;
+        let n_1_3 = document.querySelector("#s_1_3").value;
+        let n_1_4 = document.querySelector("#s_1_4").value;
+        let n_1_5 = document.querySelector("#s_1_5").value;
+        let n_1_6 = document.querySelector("#s_1_6").value;
+        let n_1_7 = document.querySelector("#s_1_7").value;
+        let fr_s_1 = document.querySelector("#img_rapor_s_1").getAttribute("src");
+        localStorage.setItem("st_1_1", n_1_1);
+        localStorage.setItem("st_1_2", n_1_2);
+        localStorage.setItem("st_1_3", n_1_3);
+        localStorage.setItem("st_1_4", n_1_4);
+        localStorage.setItem("st_1_5", n_1_5);
+        localStorage.setItem("st_1_6", n_1_6);
+        localStorage.setItem("st_1_7", n_1_7);
+        localStorage.setItem("C_1", fr_s_1);
+        // nilai semester 2
+        let n_2_1 = document.querySelector("#s_2_1").value;
+        let n_2_2 = document.querySelector("#s_2_2").value;
+        let n_2_3 = document.querySelector("#s_2_3").value;
+        let n_2_4 = document.querySelector("#s_2_4").value;
+        let n_2_5 = document.querySelector("#s_2_5").value;
+        let n_2_6 = document.querySelector("#s_2_6").value;
+        let n_2_7 = document.querySelector("#s_2_7").value;
+        let fr_s_2 = document.querySelector("#img_rapor_s_2").getAttribute("src");
+        localStorage.setItem("st_2_1", n_1_1);
+        localStorage.setItem("st_2_2", n_2_2);
+        localStorage.setItem("st_2_3", n_2_3);
+        localStorage.setItem("st_2_4", n_2_4);
+        localStorage.setItem("st_2_5", n_2_5);
+        localStorage.setItem("st_2_6", n_2_6);
+        localStorage.setItem("st_2_7", n_2_7);
+        localStorage.setItem("C_2", fr_s_2);
+        // nilai semester 3
+        let n_3_1 = document.querySelector("#s_3_1").value;
+        let n_3_2 = document.querySelector("#s_3_2").value;
+        let n_3_3 = document.querySelector("#s_3_3").value;
+        let n_3_4 = document.querySelector("#s_3_4").value;
+        let n_3_5 = document.querySelector("#s_3_5").value;
+        let n_3_6 = document.querySelector("#s_3_6").value;
+        let n_3_7 = document.querySelector("#s_3_7").value;
+        let fr_s_3 = document.querySelector("#img_rapor_s_3").getAttribute("src");
+        localStorage.setItem("st_3_1", n_3_1);
+        localStorage.setItem("st_3_2", n_3_2);
+        localStorage.setItem("st_3_3", n_3_3);
+        localStorage.setItem("st_3_4", n_3_4);
+        localStorage.setItem("st_3_5", n_3_5);
+        localStorage.setItem("st_3_6", n_3_6);
+        localStorage.setItem("st_3_7", n_3_7);
+        localStorage.setItem("C_3", fr_s_3);
+        // nilai semester 4
+        let n_4_1 = document.querySelector("#s_4_1").value;
+        let n_4_2 = document.querySelector("#s_4_1").value;
+        let n_4_3 = document.querySelector("#s_4_1").value;
+        let n_4_4 = document.querySelector("#s_4_1").value;
+        let n_4_5 = document.querySelector("#s_4_1").value;
+        let n_4_6 = document.querySelector("#s_4_1").value;
+        let n_4_7 = document.querySelector("#s_4_1").value;
+        let fr_s_4 = document.querySelector("#img_rapor_s_4").getAttribute("src");
+        localStorage.setItem("st_4_1", n_4_1);
+        localStorage.setItem("st_4_2", n_4_2);
+        localStorage.setItem("st_4_3", n_4_3);
+        localStorage.setItem("st_4_4", n_4_4);
+        localStorage.setItem("st_4_5", n_4_5);
+        localStorage.setItem("st_4_6", n_4_6);
+        localStorage.setItem("st_4_7", n_4_7);
+        localStorage.setItem("C_4", fr_s_4);
+        // nilai semester 5 
+        let n_5_1 = document.querySelector("#s_5_1").value;
+        let n_5_2 = document.querySelector("#s_5_1").value;
+        let n_5_3 = document.querySelector("#s_5_1").value;
+        let n_5_4 = document.querySelector("#s_5_1").value;
+        let n_5_5 = document.querySelector("#s_5_1").value;
+        let n_5_6 = document.querySelector("#s_5_1").value;
+        let n_5_7 = document.querySelector("#s_5_1").value;
+        let fr_s_5 = document.querySelector("#img_rapor_s_5").getAttribute("src");
+        localStorage.setItem("st_5_1", n_5_1);
+        localStorage.setItem("st_5_2", n_5_2);
+        localStorage.setItem("st_5_3", n_5_3);
+        localStorage.setItem("st_5_4", n_5_4);
+        localStorage.setItem("st_5_5", n_5_5);
+        localStorage.setItem("st_5_6", n_5_6);
+        localStorage.setItem("st_5_7", n_5_7);
+        localStorage.setItem("C_5", fr_s_5);
+         $("#mainApp").load("step-pilih-sekolah.html");
+
+    }
+
+    function setFrmSemester(id_semester)
+    {
+        $('.frmSemester').hide();
+        $("#capSemester_"+id_semester).show();
+    }
+
+    function setImgRapor_S_5()
+    {
+        var sampul = document.querySelector('#set_rapor_set_5');
+        var imgPrev = document.querySelector('#img_rapor_s_5');
+        var fileGambar = new FileReader();
+        fileGambar.readAsDataURL(sampul.files[0]);
+            
+        fileGambar.onload = function(e){
+            let hasil = e.target.result;
+            imgPrev.src = hasil;
+        }
+    }
+
+    function setImgRapor_S_4()
+    {
+        var sampul = document.querySelector('#set_rapor_set_4');
+        var imgPrev = document.querySelector('#img_rapor_s_4');
+        var fileGambar = new FileReader();
+        fileGambar.readAsDataURL(sampul.files[0]);
+            
+        fileGambar.onload = function(e){
+            let hasil = e.target.result;
+            imgPrev.src = hasil;
+        }
+    }
+
+    function setImgRapor_S_3()
+    {
+        var sampul = document.querySelector('#set_rapor_set_3');
+        var imgPrev = document.querySelector('#img_rapor_s_3');
+        var fileGambar = new FileReader();
+        fileGambar.readAsDataURL(sampul.files[0]);
+            
+        fileGambar.onload = function(e){
+            let hasil = e.target.result;
+            imgPrev.src = hasil;
+        }
+    }
+
+    function setImgRapor_S_2()
+    {
+        var sampul = document.querySelector('#set_rapor_set_2');
+        var imgPrev = document.querySelector('#img_rapor_s_2');
+        var fileGambar = new FileReader();
+        fileGambar.readAsDataURL(sampul.files[0]);
+            
+        fileGambar.onload = function(e){
+            let hasil = e.target.result;
+            imgPrev.src = hasil;
+        }
+    }
+
+    function setImgRapor_S_1()
+    {
+        var sampul = document.querySelector('#set_rapor_set_1');
+        var imgPrev = document.querySelector('#img_rapor_s_1');
+        var fileGambar = new FileReader();
+        fileGambar.readAsDataURL(sampul.files[0]);
+            
+        fileGambar.onload = function(e){
+            let hasil = e.target.result;
+            imgPrev.src = hasil;
+        }
+    }
+
+</script>

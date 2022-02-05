@@ -1,0 +1,138 @@
+<div class="page__content" style="background-color: #ecf0f1;padding-top: 10px;text-align: center;">
+    <p class="welcome">
+    <h2>Alamat rumah</h2>
+    </p>
+    <p>Untuk mendapatkan nilai kordinat kamu saat ini, silahkan tekan tombol "Temukan lokasi saya" pada maps di bawah
+        ini</p>
+    <div id="map"></div>
+    <div id="divLokasiKamu" style="margin-top:15px;">
+        <h4 class="card__title">Lokasi kamu (menurut GPS)</h4>
+        <p id="lokasiAlamat">-</p>
+    </div>
+    <div id="divI" style="margin-top:15px;">
+        <h4 class="card__title">Input alamat manual kamu</h4>
+        <div class="form__row">
+            <textarea id="txtAlamatManual" class="form__textarea required"></textarea>
+        </div>
+    </div>
+    <div class="form__row mt-40">
+        <a class="form__submit button button--main button--full" onclick="nextAtc()">Konfirmasi & Selanjutnya</a>
+    </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1MgLuZuyqR_OGY3ob3M52N46TDBRI_9k&callback=initMap&libraries=&v=weekly" async></script>
+<script>
+
+    var map, infoWindow;
+
+    var alamat_gps = "";
+
+    var lat_g, lng_g;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 3.587176, lng: 98.711230 },
+            zoom: 13,
+        });
+        infoWindow = new google.maps.InfoWindow();
+        const locationButton = document.createElement("button");
+        locationButton.textContent = "Temukan lokasi saya";
+        locationButton.classList.add("custom-map-control-button");
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(
+            locationButton
+        );
+        locationButton.addEventListener("click", () => {
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+                        const geocoder = new google.maps.Geocoder();
+                        geocodeLatLng(geocoder, pos);
+                        // console.log(pos);
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent("Lokasi perangkat ...");
+                        infoWindow.open(map);
+                        map.setCenter(pos);
+                        map.setZoom(15);
+                    },
+                    () => {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    }
+                );
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        });
+    }
+
+    function geocodeLatLng(geocoder, pos) {
+        // const input = document.getElementById("latlng").value;
+        // const latlngStr = input.split(",", 2);
+        const latlng = {
+            lat: parseFloat(pos['lat']),
+            lng: parseFloat(pos['lng']),
+        };
+        lat_g = parseFloat(pos['lat']);
+        lng_g = parseFloat(pos['lng']);
+        geocoder.geocode({ location: latlng }, (results, status) => {
+            if (status === "OK") {
+                if (results[0]) {
+                    // console.log(results[0].formatted_address);
+                    document.querySelector("#lokasiAlamat").innerHTML = results[0].formatted_address;
+                    alamat_gps = results[0].formatted_address;
+                    localStorage.setItem("alamat_gps", alamat_gps);
+                    // infowindow.setContent(results[0].formatted_address);
+                } else {
+                    window.alert("No results found");
+                }
+            } else {
+                window.alert("Geocoder failed due to: " + status);
+            }
+        });
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(
+            browserHasGeolocation
+                ? "Error: The Geolocation service failed."
+                : "Error: Your browser doesn't support geolocation."
+        );
+        infoWindow.open(map);
+    }
+
+    function nextAtc()
+    {
+        let alamatManual = document.querySelector("#txtAlamatManual").value;
+        let alamatGps = alamat_gps;
+        
+        if(alamatManual === ''){
+            ziTo('warning', 'Kesalahan input', 'Pastikan alamat gps & alamat manual anda telah terisi !!!');
+        }else{
+            console.log(lat_g);
+            console.log(lng_g);
+            localStorage.setItem("alamat_manual", alamatManual);
+            localStorage.setItem("lat_g", lat_g);
+            localStorage.setItem("lng_g", lng_g);
+            
+            let jalur_id = localStorage.getItem("jalur_pendaftaran");
+            if(jalur_id === '1'){
+                $("#mainApp").load("step-preview-afirmasi.html");
+            }else if(jalur_id === '2'){
+                $("#mainApp").load("step-preview-mutasi.html");
+            }else if(jalur_id === '3'){
+                $("#mainApp").load("step-preview-prestasi-akademik.html");
+            }else if(jalur_id === '4'){
+                $("#mainApp").load("step-preview-prestasi-non-akademik.html");
+            }else{
+                $("#mainApp").load("step-preview-zonasi.html");
+            }
+            
+        }
+        
+    }
+</script>

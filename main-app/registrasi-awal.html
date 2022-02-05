@@ -1,0 +1,124 @@
+<div class="page__content" style="background-color: #ecf0f1;padding-top: 10px;">
+  <a class="form__submit button button--main button--full" href="javascript:void(0)">Kembali</a>
+    <p class="welcome">
+        <h2>Registrasi Peserta</h2>
+        Berikut adalah data diri anda yang ada di dapodik (data pokok pendidikan).
+    </p>
+    <div class="fieldset">
+        <div class="form">
+            <form id="Form" method="post" action="checkout.html">
+                <div class="form__row">
+                    <label>Nama Lengkap</label>
+                    <h2 id="cNamaLengkap">Memuat ...</h2>
+                </div>
+                <div class="form__row">
+                    <label>Tempat Lahir</label>
+                    <h2 id="cTempatLahir">Memuat ...</h2>
+                </div>
+                <div class="form__row">
+                    <label>Tanggal Lahir</label>
+                    <h2 id="cTanggalLahir">Memuat ...</h2>
+                </div>
+                <div class="form__row">
+                    <label>Jenis Kelamin</label>
+                    <h2 id="cJenisKelamin">Memuat ...</h2>
+                </div>
+                <div class="form__row">
+                    <label>Alamat</label>
+                    <h2 id="cAlamat">Memuat ...</h2>
+                </div>
+                <div class="form__row">
+                    <label>Nama Orang Tua</label>
+                    <h2 id="cNamaOrangTua">Memuat ...</h2>
+                </div>
+                <div class="form__row">
+                    <div class="form__select">
+                        <label>Akreditasi sekolah sebelumnya</label>
+                        <select name="selectoptions" class="required" id="txtAkreditasi">
+                            <option value="none">-- Pilih akreditasi --</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="no">Belum terakreditasi</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <label>Foto KK (Kartu Keluarga)</label>
+                    <img src="../ladun/img/default.jpg" style="width: 200px;border-radius: 12px;" id="previewKk"><br/>
+                    
+                    <a href="javascript:void(0)" class="button"><input type="file" id="inputFotoKk" onchange="getImg()" class="custom-file-input"></a>
+                </div>
+                
+                <div class="form__row mt-40">
+                    <a class="form__submit button button--main button--full" onclick="nextAtc()">Selanjutnya</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    var username = localStorage.getItem("username");
+
+    $.post('https://api.haxors.or.id/ppdb/get-data-siswa-dapodik.php', {'username':username}, function(data){
+        let obj = JSON.parse(data);
+        // console.log(obj);
+        document.querySelector("#cNamaLengkap").innerHTML = obj.nama;
+        document.querySelector("#cTempatLahir").innerHTML = obj.tempat_lahir;
+        document.querySelector("#cTanggalLahir").innerHTML = obj.tanggal_lahir;
+        document.querySelector("#cJenisKelamin").innerHTML = obj.jenis_kelamin;
+        document.querySelector("#cAlamat").innerHTML = obj.alamat_jalan;
+        document.querySelector("#cNamaOrangTua").innerHTML = obj.nama_ibu_kandung;
+    });
+
+    function getImg()
+    {
+        const fi = document.getElementById('inputFotoKk');
+      
+        if (fi.files.length > 0) {
+            for (const i = 0; i <= fi.files.length - 1; i++) {
+ 
+                const fsize = fi.files.item(i).size;
+                const file = Math.round((fsize / 1024));
+                // The size of the file.
+                if (file >= 3096) {
+                    alert("File terlalu besar, harap pilih file dibawah ukuran 3 Mb");
+                    document.querySelector("#previewKk").setAttribute("src", "../ladun/img/default.jpg");
+                }else {
+                    var sampul = document.querySelector('#inputFotoKk');
+                    var imgPrev = document.querySelector('#previewKk');
+                    var fileGambar = new FileReader();
+                    fileGambar.readAsDataURL(sampul.files[0]);
+
+                    fileGambar.onload = function(e){
+                        let hasil = e.target.result;
+                        imgPrev.src = hasil;
+                    }
+                }
+            }
+        }
+    }
+    
+    function nextAtc()
+    {
+        let akreditasi = document.querySelector("#txtAkreditasi").value;     
+        let imgKk = document.querySelector("#previewKk").getAttribute('src');
+       
+        if(akreditasi === 'none'){
+            ziTo('warning', 'Kesalahan input', 'Silahkan pilih akreditasi sekolah asal anda !!!');
+        }else{
+            if(imgKk === '../ladun/img/default.jpg'){
+                ziTo('warning', 'Kesalahan input', 'Silahkan lengkapi dokumen yang diperlukan !!!');
+            }else{
+                
+                localStorage.setItem("akreditasi_sekolah_sebelumnya", akreditasi);
+                localStorage.setItem("data_kk", imgKk);
+                $("#mainApp").load('pilih-jalur.html');
+            }
+        }   
+    }
+
+</script>
