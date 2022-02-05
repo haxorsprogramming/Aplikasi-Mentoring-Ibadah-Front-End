@@ -48,6 +48,6 @@
     });
 
     function daftarKegiatanAtc() {
-        loadPage('daftarKegiatan.php');
+        loadPage('pendaftaran-kegiatan.php');
     }
 </script>

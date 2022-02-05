@@ -57,7 +57,7 @@ function loadPage(page) {
     $("#divLoading").hide();
     $("#mainApp").load(page);
     $("#mainApp").show();
-  }, 2000);
+  }, 500);
 }
 
 function pesanUmumApp(icon, title, text) {
