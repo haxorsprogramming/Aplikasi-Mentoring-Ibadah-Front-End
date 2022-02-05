@@ -1,4 +1,5 @@
 <?php 
+session_start();
 header("Access-Control-Allow-Origin: *");
 include('../config/db.php');
 // {'username':username, 'password':password}
@@ -16,6 +17,7 @@ if($tUser < 1){
     $passwordDB = $fUser['password'];
     $cekPw = password_verify($password, $passwordDB);
     if($cekPw == true){
+        $_SESSION['userLogin'] = $username;
         $status = "ACCES_GRANTED";
     }else{
         $status = "WRONG_PASSWORD";

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +56,7 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script>
         var server = "http://localhost/Aplikasi-Mentoring-Ibadah-Front-End/";
-        var username = localStorage.getItem("username");
+        var username = "<?=$_SESSION['userLogin']; ?>";
         var role = "";
     </script>
     <script src="../ladun/js/main-app.js"></script>

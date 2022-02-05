@@ -19,12 +19,15 @@
 
 function homeBotAtc()
 {
-	let dataLogin = getUserLogin();
-	if(dataLogin.role === "MENTOR"){
-		loadPage('beranda-mentor.php');
+	$.post(rGetInfoLogin, ds, function (data) {
+	let obj = JSON.parse(data);
+	let role = obj.role;
+	if(role === "MENTOR"){
+		loadPage("beranda-mentor.php");
 	}else{
-		loadPage('beranda-binaan.php');
+		loadPage("beranda-binaan.php");
 	}
+});
 }
 
 function profileBotAtc()

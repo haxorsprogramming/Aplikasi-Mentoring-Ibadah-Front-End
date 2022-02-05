@@ -11,11 +11,11 @@
 <p class="welcome"></p>
 <h3>Fitur aplikasi (Mentor)</h3>
 <div class="cards cards--12">
-    <div class="card card--style-icon card--style-round-corners" onclick="daftarKegiatanAtc()">
+    <div class="card card--style-icon card--style-round-corners" onclick="buatKegiatanAtc()">
         <div class="card__icon"><img src="../ladun/assets/images/icons/blue/form.svg" alt="" title="" />
         </div>
-        <h4 class="card__title">Pendaftaran Kegiatan</h4>
-        <p class="card__text">Pendaftaran kegiatan amalan untuk digunakan oleh binaan</p>
+        <h4 class="card__title">Buat Kegiatan</h4>
+        <p class="card__text">Buat kegiatan amalan untuk digunakan oleh binaan</p>
     </div>
     <div class="card card--style-icon card--style-round-corners">
         <div class="card__icon"><img src="../ladun/assets/images/icons/blue/listing.svg" alt="" title="" />
@@ -47,7 +47,7 @@
         document.querySelector("#capUser").innerHTML = "Selamat datang, " + obj.namaUser;
     });
 
-    function daftarKegiatanAtc() {
-        loadPage('daftarKegiatan.php');
+    function buatKegiatanAtc() {
+        loadPage('buat-kegiatan.php');
     }
 </script>

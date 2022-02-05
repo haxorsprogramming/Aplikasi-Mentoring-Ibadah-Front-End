@@ -74,13 +74,3 @@ function tidur_bentar(ms) {
   });
 }
 
-function getUserLogin()
-{
-  var dataRespon = {'nama':'', 'role':''}
-  $.post(rGetInfoLogin, {'username':username}, function (data) {
-    let obj = JSON.parse(data);
-    dataRespon.nama = obj.namaUser;
-    dataRespon.role = obj.role;
-  });
-  return dataRespon;
-}
