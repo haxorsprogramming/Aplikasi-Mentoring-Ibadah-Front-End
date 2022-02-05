@@ -1,5 +1,5 @@
 
-$("#mainApp").load("beranda.html");
+$("#mainApp").load("beranda.php");
 
 function botNavAtc()
 {
