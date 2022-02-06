@@ -47,7 +47,8 @@ $qKegiatan = $link -> query("SELECT * FROM tbl_kegiatan WHERE id_kelompok_binaan
         let jenisKegiatan = document.querySelector("#txtJenisKegiatan").value;
         let ds = {'jenisAmalan':jenisAmalan, 'jenisKegiatan':jenisKegiatan, 'username':'<?=$userLogin;?>', 'idKb' : '<?=$idKelompokBinaan; ?>'}
         axios.post(serverApi + "api/kegiatan/pendaftaran/proses", ds).then(function(res){
-            
+            pesanUmumApp('success', 'Sukses', 'Pendaftaran kegiatan berhasil, silahkan pantau antrian di halaman status amalan');
+            loadPage('status-amalan.php');
         });
     }
 </script>

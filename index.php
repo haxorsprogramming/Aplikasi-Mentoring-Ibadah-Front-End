@@ -7,7 +7,7 @@ include('config/db.php');
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, minimal-ui">
-	<title>PPDB Sumatera Utara 2021</title>
+	<title>Aplikasi Monitoring Ibadah</title>
 	<link rel="stylesheet" href="ladun/vendor/swiper/swiper.min.css">
 	<link rel="stylesheet" href="https://demo.getstisla.com/assets/modules/izitoast/css/iziToast.min.css">
 	<link rel="stylesheet" href="ladun/css/style.css">
@@ -70,7 +70,7 @@ include('config/db.php');
 	<script src="ladun/vendor/swiper/swiper.min.js"></script>
 	<script src="ladun/js/jquery.custom.js"></script>
 	<script>
-		const server = "http://localhost/Aplikasi-Mentoring-Ibadah-Front-End/";
+		const server = "<?=$server; ?>";
 	</script>
 	<script src="ladun/js/login.js"></script>
 </body>

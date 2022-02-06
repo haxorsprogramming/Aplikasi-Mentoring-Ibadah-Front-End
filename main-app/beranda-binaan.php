@@ -17,10 +17,10 @@
         <h4 class="card__title">Pendaftaran Kegiatan</h4>
         <p class="card__text">Pendaftaran kegiatan amalan ke mentor</p>
     </div>
-    <div class="card card--style-icon card--style-round-corners">
+    <div class="card card--style-icon card--style-round-corners" onclick="statusAmalanAtc()">
         <div class="card__icon"><img src="../ladun/assets/images/icons/blue/listing.svg" alt="" title="" />
         </div>
-        <h4 class="card__title">History Amalan</h4>
+        <h4 class="card__title">Status Amalan</h4>
         <p class="card__text">Status pendaftaran amalan & history amalan akan tampil</p>
     </div>
     <div class="card card--style-icon card--style-round-corners">
@@ -39,15 +39,19 @@
 
 <script>
     var rGetInfoLogin = server + "api/getInfoLogin.php";
-    var ds = {
-        'username': username
-    }
-    $.post(rGetInfoLogin, ds, function(data) {
+    var ds = {'username': username}
+    $.post(rGetInfoLogin, ds, function(data)
+    {
         let obj = JSON.parse(data);
         document.querySelector("#capUser").innerHTML = "Selamat datang, " + obj.namaUser;
     });
 
-    function daftarKegiatanAtc() {
+    function daftarKegiatanAtc()
+    {
         loadPage('pendaftaran-kegiatan.php');
+    }
+    function statusAmalanAtc()
+    {
+        loadPage('status-amalan.php');
     }
 </script>
