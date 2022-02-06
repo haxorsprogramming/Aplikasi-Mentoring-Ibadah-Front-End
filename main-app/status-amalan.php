@@ -23,21 +23,29 @@ $qAntrian = $link -> query("SELECT * FROM tbl_peserta WHERE id_binaan='$username
         $qJenisAmalan = $link -> query("SELECT * FROM tbl_jenis_amalan WHERE kd_amalan='$idAmalan' LIMIT 0,1;");
         $fAmalan = $qJenisAmalan -> fetch_assoc();
         // cari total antrian 
-        $qTotalAntrian = $link -> query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran='ANTRIAN';");
+        $qTotalAntrian = $link -> query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan';");
         $tAntrian = mysqli_num_rows($qTotalAntrian);
         // cari nomor antrian 
         $nomorAntrian = $fAntrian['ordinal'];
     ?>
     <div class="card card--style-inline card--style-inline-bg">
-        <div class="card__icon"><img src="<?= $server; ?>ladun/img/blocks.svg" style="width:40px;" alt="" title=""></div>
+        
         <div class="card__details">
             <h4 class="card__title"><?=$fAmalan['nama_amalan']; ?></h4>
             <p class="card__text"><strong><?=$fKegiatan['nama_kegiatan']; ?></strong> </p>
-            <p class="card__text">Tanggal Kegiatan : <?=$fKegiatan['tanggal_kegiatan']; ?>
-            <br/>Mulai : <?=$fKegiatan['waktu_mulai']; ?><br/>Selesai : <?=$fKegiatan['waktu_selesai']; ?><br/>
-            Nomor Antrian : <?=$nomorAntrian; ?><br/>
-            Total Antrian : <?=$tAntrian; ?><br/>
-            Status : <b>Menunggu Antrian</b>
+            <p class="card__text">Tanggal Kegiatan : <?=$fKegiatan['tanggal_kegiatan']; ?><br/>
+            <?php if($fAntrian['status_setoran'] === "SELESAI"){ ?> 
+                Status : <b>Selesai</b><br/>
+                Waktu selesai : <b><?=$fAntrian['waktu_selesai']; ?></b>
+            <?php }elseif($fAntrian['status_setoran'] === "BERLANGSUNG"){ ?>
+                Status : <b>Sedang berlangsung</b><br/>
+            <?php }else{ ?>
+                Status : <b>Menunggu Antrian</b><br/>
+                Nomor Antrian : <?=$nomorAntrian; ?><br/>
+                Total Antrian : <?=$tAntrian; ?><br/>
+            <?php } ?>
+            
+            
             <p>
         </p>
         </div>

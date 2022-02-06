@@ -27,13 +27,21 @@ Waktu Selesai : <?=$fKegiatan['waktu_selesai']; ?><br/>
     // cari jenis amalan 
     $qJenisAmalan = $link->query("SELECT * FROM tbl_jenis_amalan WHERE kd_amalan='$idJenisAmalan' LIMIT 0,1;");
     $fAmalan = $qJenisAmalan->fetch_assoc();
-    // cari record yang pertama
-    $qTokenPertamaAntrian = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran='ANTRIAN' LIMIT 0,1;");
-    $fTokenPertama = $qTokenPertamaAntrian->fetch_assoc();
-    $tokenPertama = $fTokenPertama['token_antrian'];
-    // cek apakah ada amalan yang sedang berlangsung 
-    $qCekAmalanBerlangsung = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran='BERLANGSUNG';");
-    $tAmalanBerlangsung = mysqli_num_rows($qCekAmalanBerlangsung);
+    // cek setoran dulu 
+    $qCekSetoran = $link -> query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran='ANTRIAN';");
+    $tSetoran = mysqli_num_rows($qCekSetoran);
+    if($tSetoran > 0){
+        // cari record yang pertama
+        $qTokenPertamaAntrian = $link -> query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran='ANTRIAN' LIMIT 0,1;");
+        $fTokenPertama = $qTokenPertamaAntrian->fetch_assoc();
+        $tokenPertama = $fTokenPertama['token_antrian'];
+        // cek apakah ada amalan yang sedang berlangsung 
+        $qCekAmalanBerlangsung = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran='BERLANGSUNG';");
+        $tAmalanBerlangsung = mysqli_num_rows($qCekAmalanBerlangsung);
+    }else{
+
+    }
+    
     
     ?>
     <div class="card card--style-inline card--style-inline-bg">
@@ -63,23 +71,50 @@ Waktu Selesai : <?=$fKegiatan['waktu_selesai']; ?><br/>
             } elseif ($fPeserta['status_setoran'] == 'BERLANGSUNG') { ?>
                 <a href="javascript:void(0)" onclick='tandaiSelesaiAtc("<?=$tokenAntrian; ?>")'>Tandai selesai</a>
             <?php } elseif ($tokenPertama == $tokenAntrian) { ?>
-                <a href="javascript:void(0)">Approve</a>
+                <a href="javascript:void(0)" onclick='rejectAtc("<?=$tokenAntrian; ?>")'> Reject</a>
             <?php } elseif ($fPeserta['status_setoran'] == 'ANTRIAN') { ?>
-                <a href="javascript:void(0)">Reject</a>
+                <a href="javascript:void(0)" onclick='rejectAtc("<?=$tokenAntrian; ?>")'>Reject</a>
             <?php } ?>
         </p>
     </div>
     <hr />
 <?php } ?>
 
+<div>
+    <a class="form__submit button button--main button--full" id="btnProses" onclick="exportPdf()">Export PDF</a>
+</div>
+
 <script>
+    var idKegiatan = "<?=$idKegiatan; ?>";
+
     function tandaiSelesaiAtc(token)
     {
-        confirmQuest('info', 'Konfirmasi', 'Konfirmasi selesai amalan untuk binaan ini?', function (x) {deleteConfirm(token)});
+        confirmQuest('info', 'Konfirmasi', 'Konfirmasi selesai amalan untuk binaan ini?', function (x) {finishConfirm(token)});
     }
-    function deleteConfirm(token)
+    function finishConfirm(token)
     {
-        
+        let ds = {'token':token}
+        axios.post(serverApi + "api/kegiatan/amalan/selesai/proses", ds).then(function(res){
+            pesanUmumApp('success', 'Sukses', 'Sukses mengupdate status antrian ..');
+            $("#divDataAntrian").load('data-list-antrian-mentor.php?idKegiatan='+idKegiatan);
+        });
+    }
+    function exportPdf()
+    {
+        let urlExport = serverApi + "api/pdf/export/"+idKegiatan;
+        window.open(urlExport);
+    }
+    function rejectAtc(token)
+    {
+        confirmQuest('info', 'Konfirmasi', 'Konfirmasi reject (keluarkan) binaan untuk melakukan setoran?', function (x) {rejectConfirm(token)});
+    }
+    function rejectConfirm(token)
+    {
+        let ds = {'token':token}
+        axios.post(serverApi + "api/kegiatan/amalan/reject/proses", ds).then(function(res){
+            pesanUmumApp('success', 'Sukses', 'Sukses mengahpus salah satu antrian ..');
+            $("#divDataAntrian").load('data-list-antrian-mentor.php?idKegiatan='+idKegiatan);
+        });
     }
     function confirmQuest(icon, title, text, x)
     {

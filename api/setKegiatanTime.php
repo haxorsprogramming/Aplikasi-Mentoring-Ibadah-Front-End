@@ -32,7 +32,7 @@ while($fKegiatan = $qKegiatan -> fetch_assoc()){
         $menitBaru = date('H:i:s', strtotime($waBanget. '+'.$fAmalan['durasi'].' minutes'));
         $waBanget = $menitBaru;
         if(strtotime($waktuSekarang) > strtotime($waBanget)){
-            // $link -> query("UPDATE tbl_peserta SET status_setoran='SELESAI' WHERE token_antrian='$tokenAntrian';");
+            $link -> query("UPDATE tbl_peserta SET status_setoran='SELESAI', waktu_selesai='$waktuSekarang' WHERE token_antrian='$tokenAntrian';");
             $statusWaktu = "Sudah lewat";
         }else{
             $statusWaktu = "Belum lewat";
@@ -40,10 +40,10 @@ while($fKegiatan = $qKegiatan -> fetch_assoc()){
         echo "<li>".$idBinaan.". Burst Time : ".$fAmalan['durasi']." menit. Perkiraan waktu selesai : ".$menitBaru.". Status Waktu : ".$statusWaktu."</li>";
     }
     // cari data teratas 
-    $qTokenPertamaAntrian = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran='ANTRIAN' LIMIT 0,1;");
+    $qTokenPertamaAntrian = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran != 'SELESAI' LIMIT 0,1;");
     $fTokenPertama = $qTokenPertamaAntrian -> fetch_assoc();
     $tokenPertama = $fTokenPertama['token_antrian'];
-    // $link -> query("UPDATE tbl_peserta SET status_setoran='BERLANGSUNG' WHERE token_antrian='$tokenPertama';");
+    $link -> query("UPDATE tbl_peserta SET status_setoran='BERLANGSUNG' WHERE token_antrian='$tokenPertama';");
     echo "<hr/>";
 }
 

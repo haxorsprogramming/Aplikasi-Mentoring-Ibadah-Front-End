@@ -23,17 +23,11 @@
         <h4 class="card__title">Daftar Kegiatan</h4>
         <p class="card__text">Daftar antrian untuk binaan</p>
     </div>
-    <div class="card card--style-icon card--style-round-corners">
-        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/pencil.svg" alt="" title="" />
+    <div class="card card--style-icon card--style-round-corners" onclick="listKegiatanMentorAtc()">
+        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/listing.svg" alt="" title="" />
         </div>
-        <h4 class="card__title">Daftar Antrian</h4>
-        <p class="card__text">Cek dan pantau info terbaru seputar pelaksanaan PPDB 2021</p>
-    </div>
-    <div class="card card--style-icon card--style-round-corners">
-        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/user.svg" alt="" title="" />
-        </div>
-        <h4 class="card__title">Cetak History Kegiatan</h4>
-        <p class="card__text">Cek status pendaftaran PPDB yang telah kami lakukan</p>
+        <h4 class="card__title">Video Confrence</h4>
+        <p class="card__text">Lakukan video confrence kepada binaan</p>
     </div>
 </div>
 
