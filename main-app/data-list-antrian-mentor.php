@@ -4,10 +4,16 @@ include('../config/db.php');
 $username = $_SESSION['userLogin'];
 $idKegiatan = $_GET['idKegiatan'];
 // query cari antrian 
-$qPeserta = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan';");
-
+$qPeserta = $link -> query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan';");
+// queery kegiatan 
+$qKegiatan = $link -> query("SELECT * FROM tbl_kegiatan WHERE token_kegiatan='$idKegiatan' LIMIT 0,1;");
+$fKegiatan = $qKegiatan -> fetch_assoc();
 ?>
-<h4>List Antrian</h4>
+<hr/>
+<h4>Detail Kegiatan</h4>
+Nama Kegiatan : <?=$fKegiatan['nama_kegiatan']; ?><br/>
+Waktu Mulai : <?=$fKegiatan['waktu_mulai']; ?><br/>
+Waktu Selesai : <?=$fKegiatan['waktu_selesai']; ?><br/>
 <hr />
 <?php while ($fPeserta = $qPeserta->fetch_assoc()) { ?>
     <?php
@@ -28,17 +34,7 @@ $qPeserta = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiat
     // cek apakah ada amalan yang sedang berlangsung 
     $qCekAmalanBerlangsung = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiatan' AND status_setoran='BERLANGSUNG';");
     $tAmalanBerlangsung = mysqli_num_rows($qCekAmalanBerlangsung);
-
-    // if($tAmalanBerlangsung < 1){
-    //     $statusPertama = false;
-    // }else{
-    //     if($tokenAntrian == $tokenPertama){
-    //         $statusPertama = true;
-    //     }else{
-    //         $statusPertama = false;
-    //     }
-    // }
-
+    
     ?>
     <div class="card card--style-inline card--style-inline-bg">
         <div class="card__details">
@@ -51,9 +47,11 @@ $qPeserta = $link->query("SELECT * FROM tbl_peserta WHERE id_kegiatan='$idKegiat
                 } elseif ($fPeserta['status_setoran'] == 'BERLANGSUNG') {
                     echo "Status : <b>Sedang melaksanakan amalan</b>";
                 } else {
-                    echo "Status : <b>Selesai</b>";
+                    echo "Status : <b>Selesai</b><br/>";
+                    echo "Waktu selesai : ".$fPeserta['waktu_selesai'];
                 }
                 ?>
+                <br/>
             </p>
         </div>
         <p>
