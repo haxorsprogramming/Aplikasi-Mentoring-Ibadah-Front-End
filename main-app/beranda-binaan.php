@@ -1,7 +1,7 @@
 <div class="cards cards--11" style="text-align: center;">
     <div class="card card--style-cover card--style-round-corners">
 
-        <img src="http://s3.jagoanstorage.com/aditia-storage/asset/logo/uinsu.png" style="width:100px;">
+        <img src="http://s3.jagoanstorage.com/aditia-storage/asset/logo/LOGO_LDK.jpg" style="width:100px;">
         <h2 class="page__title">LDK AL-Izzah Uinsu</h2>
         <h3 id="capUser">Selamat Datang, </h3>
 
@@ -22,18 +22,6 @@
         </div>
         <h4 class="card__title">Status Amalan</h4>
         <p class="card__text">Status pendaftaran amalan & history amalan akan tampil</p>
-    </div>
-    <div class="card card--style-icon card--style-round-corners">
-        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/pencil.svg" alt="" title="" />
-        </div>
-        <h4 class="card__title">Informasi Aplikasi</h4>
-        <p class="card__text">Cek dan pantau info terbaru seputar pelaksanaan PPDB 2021</p>
-    </div>
-    <div class="card card--style-icon card--style-round-corners">
-        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/user.svg" alt="" title="" />
-        </div>
-        <h4 class="card__title">Cetak History Kegiatan</h4>
-        <p class="card__text">Cek status pendaftaran PPDB yang telah kami lakukan</p>
     </div>
 </div>
 

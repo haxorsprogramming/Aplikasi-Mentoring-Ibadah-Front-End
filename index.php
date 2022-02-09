@@ -24,7 +24,7 @@ include('config/db.php');
 			<div class="login">
 				<div class="login__content" style="margin-top: -42px;">
 					<div style="text-align: center;">
-						<img src="http://s3.jagoanstorage.com/aditia-storage/asset/logo/uinsu.png" style="width: 150px;">
+						<img src="http://s3.jagoanstorage.com/aditia-storage/asset/logo/LOGO_LDK.jpg" style="width: 120px;">
 					</div>
           			<h3 class="login__title">Aplikasi Monitoring Ibadah</h3>
 					<h4 class="login__title" style="font-size: 21px;">LDK AL-Izzah Uinsu</h4>
@@ -51,7 +51,9 @@ include('config/db.php');
 							<a href="javascript:void(0)" class="button button--secondary button--full"@click="daftarAtc">Daftar</a>
 						</div> -->
 						<div style="text-align: center;color: aliceblue;margin-top:20px;">
-							<span>Develop By : Fitria Sri Budi Asih</span>
+							<span>Develop By : Fitria Sri Budi Asih</span><br/>
+							Program Studi Sistem Informasi, Fakultas Sains dan Teknologi<br/>
+							Universitas Islam Negeri Sumatera Utara
 						</div>
 					</div>
 				</div>

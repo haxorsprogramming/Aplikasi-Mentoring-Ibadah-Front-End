@@ -44,14 +44,10 @@ $qAntrian = $link -> query("SELECT * FROM tbl_peserta WHERE id_binaan='$username
                 Nomor Antrian : <?=$nomorAntrian; ?><br/>
                 Total Antrian : <?=$tAntrian; ?><br/>
             <?php } ?>
-            
-            
             <p>
         </p>
         </div>
-        <p>
-            <a href="javascript:void(0)">Detail</a><br/>
-        </p>
+        
     </div>
     <hr/>
     <?php } ?>

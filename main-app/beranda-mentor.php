@@ -1,7 +1,7 @@
 <div class="cards cards--11" style="text-align: center;">
     <div class="card card--style-cover card--style-round-corners">
 
-        <img src="http://s3.jagoanstorage.com/aditia-storage/asset/logo/uinsu.png" style="width:100px;">
+        <img src="http://s3.jagoanstorage.com/aditia-storage/asset/logo/LOGO_LDK.jpg" style="width:100px;">
         <h2 class="page__title">LDK AL-Izzah Uinsu</h2>
         <h3 id="capUser">Selamat Datang, </h3>
 
@@ -22,12 +22,6 @@
         </div>
         <h4 class="card__title">Daftar Kegiatan</h4>
         <p class="card__text">Daftar antrian untuk binaan</p>
-    </div>
-    <div class="card card--style-icon card--style-round-corners" onclick="listKegiatanMentorAtc()">
-        <div class="card__icon"><img src="../ladun/assets/images/icons/blue/listing.svg" alt="" title="" />
-        </div>
-        <h4 class="card__title">Video Confrence</h4>
-        <p class="card__text">Lakukan video confrence kepada binaan</p>
     </div>
 </div>
 
